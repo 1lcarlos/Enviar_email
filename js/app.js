@@ -32,8 +32,15 @@ function iniciarApp(){
 //valida el formulario
  function validarFormulario(e){
      if (e.target.value.length > 0) {
-        
+         //eliminado los Errores
+
+        const error  = document.querySelector('p.error');
+        error.remove();
+
+        e.target.classList.remove('border', 'border-red-500');
+        e.target.classList.add('border', 'border-green-500');
      } else {
+        e.target.classList.remove('border', 'border-green-500');
          e.target.classList.add('border', 'border-red-500');
 
          mostrarError('Todos los campos deben ser diligenciados');
@@ -43,10 +50,18 @@ function iniciarApp(){
         const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (er.test(e.target.value)) {
-            console.log('Email valido')
-            //mostrarError('El email no es valido');
+             //eliminado los Errores
+
+        const error  = document.querySelector('p.error');
+        error.remove();
+
+        e.target.classList.remove('border', 'border-red-500');
+        e.target.classList.add('border', 'border-green-500');
+
         } else{
-            console.log('Email no valido');
+            e.target.classList.remove('border', 'border-green-500');
+            e.target.classList.add('border', 'border-red-500');
+            mostrarError('Email no valido');
         }
         
     }
